@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>網站維修中</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      color: #333;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 100px;
+    }
+    .message {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">🚧 網頁調整中 🚧</div>
+  <p>目前網頁正在調整中，請稍後再訪。感謝您的耐心等候！</p>
+  <p>５秒後將自動返回上一頁，或 <a href="javascript:history.back()">點此返回</a>。</p>
+  <script>
+    setTimeout(function () {
+      history.back();
+    }, 5000);
+  </script>
+</body>
+</html>
