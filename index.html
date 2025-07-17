@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <title>網站維修中</title>
@@ -11,20 +12,42 @@
       text-align: center;
       padding: 100px;
     }
+
     .message {
       font-size: 24px;
       margin-bottom: 20px;
     }
   </style>
 </head>
+
 <body>
   <div class="message">🚧 網頁調整中 🚧</div>
   <p>目前網頁正在調整中，請稍後再訪。感謝您的耐心等候！</p>
-  <p>５秒後將自動返回上一頁，或 <a href="javascript:history.back()">點此返回</a>。</p>
+  <p id="countdown">5 秒後將自動返回上一頁或跳轉到 Google首頁…</p>
   <script>
-    setTimeout(function () {
-      history.back();
-    }, 5000);
+    if (document.referrer) {
+      setTimeout(() => history.back(), 5000);
+    } else {
+      setTimeout(() => window.location.href = "https://www.google.com/", 5000);
+    }
+
+    let sec = 5;
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      sec--;
+      countdown.textContent = `${sec} 秒後將自動返回上一頁或跳轉到 Google首頁…`;
+      if (sec === 0) clearInterval(timer);
+    }, 1000);
+
+    if (document.referrer) {
+      setTimeout(() => history.back(), 5000);
+    } else {
+      setTimeout(() => window.location.href = "https://www.google.com/", 5000);
+    }
+  </script>
+
   </script>
 </body>
+
 </html>
